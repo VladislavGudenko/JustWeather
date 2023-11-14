@@ -19,9 +19,10 @@ enum SearchCityConfigurator {
         view.presenter = presenter
     }
 
-    static func open(navigationController: UINavigationController) {
+    static func open(navigationController: UINavigationController, delegate: SearchCityView) {
         let view = SearchCityViewController()
         configure(view: view)
+        view.delegate = delegate
         navigationController.present(view, animated: true)
         
     }

@@ -83,7 +83,3 @@ class MainTabBarViewController: UITabBarController {
         }
     }
 }
-
-extension MainTabBarViewController {
-    
-}

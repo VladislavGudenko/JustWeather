@@ -51,6 +51,4 @@ class SearchCityPresenterImp: SearchCityPresenter {
     func getData() -> [AddressSuggestion] {
         response
     }
-    
-    
 }

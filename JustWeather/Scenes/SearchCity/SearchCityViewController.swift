@@ -11,7 +11,7 @@
 import UIKit
 
 class SearchCityViewController: UIViewController {
-    
+    // MARK: - Properties
     internal var presenter: SearchCityPresenterImp?
     weak var delegate: SearchCityView?
     
@@ -23,21 +23,16 @@ class SearchCityViewController: UIViewController {
     }()
     
     let tableView = UITableView()
-        
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         SearchCityConfigurator.configure(view: self)
-        view.backgroundColor = .white
+        
         setupTableView()
-        addSubviews()
-        setupLayout()
+        setupUI()
         searchBar.delegate = self
     }
-    
-    deinit {
-        print("SearchCityViewController - Deinitialized")
-    }
-    
+    // MARK: - Methods
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -51,23 +46,6 @@ class SearchCityViewController: UIViewController {
     func closeScene() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.dismiss(animated: true)
-        }
-    }
-    
-    func addSubviews() {
-        view.addSubview(searchBar)
-        view.addSubview(tableView)
-    }
-    
-    func setupLayout() {
-        searchBar.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(46)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(10)
-            make.leading.trailing.equalTo(16)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }

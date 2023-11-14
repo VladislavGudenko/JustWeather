@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// глобально большая структура для OpenWeatherApi - имеет в себе достаточно много данных - по факту я использую только текущую температуру в Кельвинах и название города
 struct WeatherResponse: Decodable {
     var coord: Coord?
     var weather: [WeatherInfo]?
@@ -14,12 +14,7 @@ struct WeatherResponse: Decodable {
     var main: MainInfo?
     var visibility: Int?
     var wind: WindInfo?
-//    var clouds: CloudsInfo
-//    var sys: SysInfo
-//    var timezone: Int
-//    var id: Int
     var name: String?
-//    var cod: Int
 }
 
 struct Coord: Decodable {

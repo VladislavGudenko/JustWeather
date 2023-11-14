@@ -38,7 +38,7 @@ class MainPresenterImp: MainPresenter {
                     guard let currentCity = data.name else { return }
                     self?.view?.setupTempLabel(Int(currentTemp))
                     self?.view?.setupCityLabel(currentCity)
-                    
+                    self?.getForecast()
                 case let .failure(error):
                     print(error)
                 }
@@ -46,8 +46,24 @@ class MainPresenterImp: MainPresenter {
         }
     }
     
-    func openSearchCityVC() {
-        router.openSomeScene()
+    func getForecast() {
+        RequestManager.request(requestType: .getForecast(lat: "\(latitude ?? 0.0)", lon: "\(longitude ?? 0.0)")) { [weak self] (result: Result<WeekWeather, Error>) in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(data):
+                    let data = data.forecasts
+                    DataSingletone.shared.data = data
+                    DataSingletone.shared.updateData(newData: data)
+                    print("=========\(data)")
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func openSearchCityVC(delegate: SearchCityView) {
+        router.openSomeScene(delegate: delegate)
     }
     
     

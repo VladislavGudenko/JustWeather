@@ -8,7 +8,7 @@
 import Foundation
 
 struct RequestManager {
-    
+    // Базовый запрос принимает в себя запрос, имеет комплишен с результатом(структурой) и эррором - далее внутри тела два кейса с саксессом и эррором где обрабатываем данные либо ошибку
     static func request<T: Decodable>(requestType: Request, completion: @escaping (Result<T, Error>) -> Void) {
         
         DispatchQueue.global().async {

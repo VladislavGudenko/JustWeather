@@ -8,11 +8,12 @@
 import Foundation
 
 enum Request {
-    
+    // сюда добавляем все запросы которые могли бы быть и входные параметры которые мы отдаем на запросе
     case getCity(query: String)
     case getWeather(lat: String, lon: String)
+    case getForecast(lat: String, lon: String)
 }
-
+    // внутри данной структуры мы формируем запрос полностью - добавляем эндпоинт, квери параметры, хэдэры, апи-ключи и т д и возвращаем готовый URLRequest
 struct RequestSettings {
     
     static func setupRequest(type: Request) -> URLRequest? {
@@ -21,12 +22,12 @@ struct RequestSettings {
         
         switch type {
         case let .getCity(query: query):
-            if let url = URL(string: "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address") {
+            if let url = URL(string: ConfigEndpoind.cityEndpoint) {
                 request = URLRequest(url: url)
                 request.httpMethod = "POST"
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.setValue("application/json", forHTTPHeaderField: "Accept")
-                request.setValue("Token 1bf8aae36e63dda0bb53ec56547a4349927cac1a",
+                request.setValue(ConfigEndpoind.apiKeyCity,
                                  forHTTPHeaderField: "Authorization")
                 let parameters = [
                     "query": query,
@@ -47,12 +48,12 @@ struct RequestSettings {
             }
             
         case let .getWeather(lat: lat, lon: lon):
-            let baseURLString = "https://api.openweathermap.org/data/2.5/weather"
+            let baseURLString = ConfigEndpoind.weatherEndpoint
             var urlComponents = URLComponents(string: baseURLString)
             let parameters = [
                 "lat": lat,
                 "lon": lon,
-                "appid": "1e12de2ebdd9cec92bb0252eed0002f5",
+                "appid": ConfigEndpoind.apiKeyWeather,
                 "lang": "ru"
             ]
             urlComponents?.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
@@ -66,6 +67,26 @@ struct RequestSettings {
             request.httpMethod = "GET"
             return request
             
+        case let .getForecast(lat: lat, lon: lon):
+            let baseURL = ConfigEndpoind.forecastEndpoind
+            var urlComponents = URLComponents(string: baseURL)
+            let parameters = [
+                "lat": lat,
+                "lon": lon,
+                "lang": "ru_RU",
+                "limit": "7"
+            ]
+            urlComponents?.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value)}
+            guard let url = urlComponents?.url else {
+#if DEBUG
+                print("ошибка setupRequest getWeather")
+#endif
+                return nil
+            }
+            request = URLRequest(url: url)
+            request.setValue(ConfigEndpoind.apiKeyForecast, forHTTPHeaderField: "X-Yandex-API-Key")
+            request.httpMethod = "GET"
+            return request
         }
     }
 }

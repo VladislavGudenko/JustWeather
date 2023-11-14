@@ -8,7 +8,7 @@
 import Foundation
 
 import UIKit
-
+// расширение для лейблов для удобства настройки
 extension UILabel {
     
     @discardableResult

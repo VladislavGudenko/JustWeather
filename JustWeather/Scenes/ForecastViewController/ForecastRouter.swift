@@ -17,7 +17,7 @@ class ForecastRouter {
     init(_ view: ForecastViewController) {
         self.view = view
     }
-    
+    // Не используется -> роутер как база для MVP если бы был переход на другие экраны
     func openSomeScene() {
         guard let navController = self.view?.navigationController else {
             return

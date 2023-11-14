@@ -10,6 +10,8 @@
 
 import UIKit
 
-protocol ForecastView {
+protocol ForecastView: AnyObject {
+    
+
     
 }

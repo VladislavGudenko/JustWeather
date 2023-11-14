@@ -14,10 +14,8 @@ class MainViewController: UIViewController {
     var presenter: MainPresenterImp?
     
     let locationManager = LocationManager()
-    let searchVC = SearchCityViewController()
     
     var dayTimeState: DayTimeState?
-    var hour = 0
     var city: String?
     var kelvin = 273
     
@@ -103,8 +101,7 @@ class MainViewController: UIViewController {
     
     @objc
     func searchCityTapped() {
-        searchVC.delegate = self
-        presenter?.openSearchCityVC()
+        presenter?.openSearchCityVC(delegate: self)
     }
     
     func startLoader() {
@@ -135,7 +132,6 @@ class MainViewController: UIViewController {
         } else if (currentHour >= 23) || (currentHour < 6) {
             dayTimeState = .night
         }
-        hour = currentHour
     }
     
     // вместо цвета фона устанавливать картинку в зависимости от времени суток
@@ -225,8 +221,7 @@ extension MainViewController: SearchCityView {
     func coordinatesSender(lat: String, lon: String) {
         presenter?.latitude = Double(lat)
         presenter?.longitude = Double(lon)
-        print(presenter?.latitude)
-        print(presenter?.longitude)
+        presenter?.getWeatherData()
     }
     
 }

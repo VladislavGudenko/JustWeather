@@ -8,7 +8,7 @@
 import Foundation
 
 class ApiClientImp {
-    
+    // используем в реквест менеджере
     static let shared = ApiClientImp()
     private init () { }
     

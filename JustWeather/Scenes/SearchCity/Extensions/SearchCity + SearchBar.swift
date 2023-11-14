@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+// MARK: - SearchBarDelegate
 extension SearchCityViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

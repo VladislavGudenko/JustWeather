@@ -6,13 +6,16 @@
 //
 
 import Foundation
-
+// энам для всех стрингов - больших и маленьких))
 enum Strings: String {
     // for MainVC
     case choiseCity = "Выбрать город"
     case defaultTemp = "21°"
     case defaultCity = "Москва"
     case mainTabBar = "Main"
+    
+    // for Forecasts
+    case forecast = "Прогноз на неделю"
     
     // for description MainVC
     

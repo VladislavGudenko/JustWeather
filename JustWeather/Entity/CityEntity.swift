@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// Поиск по городам - нужны названия региона и координаты которые потом отправляем на первый экран и делаем запрос с новыми данными для обновления погоды с новым регионом
 struct AddressSuggestionsResponse: Codable {
     let suggestions: [AddressSuggestion]
 }

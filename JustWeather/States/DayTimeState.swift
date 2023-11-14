@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// энамчик для стейтов времени дня
 enum DayTimeState {
     
     case morning

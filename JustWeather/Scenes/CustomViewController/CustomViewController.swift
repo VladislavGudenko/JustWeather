@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomViewController: UIViewController {
-    
+    // MARK: - This Controller needed only for test middle TabBar Button
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = "This text for test VC"

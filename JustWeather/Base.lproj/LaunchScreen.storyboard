@@ -15,20 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="afternoon" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="avn-sK-HT6">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="light"/>
-                            </imageView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="avn-sK-HT6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2OF-Xb-WfC"/>
-                            <constraint firstItem="avn-sK-HT6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2wA-Va-WKS"/>
-                            <constraint firstItem="avn-sK-HT6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-59" id="evv-sr-bkO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="avn-sK-HT6" secondAttribute="trailing" id="wZx-k4-0Ot"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,7 +25,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="afternoon" width="4000" height="6000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

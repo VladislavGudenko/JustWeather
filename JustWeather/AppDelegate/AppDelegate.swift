@@ -11,17 +11,7 @@ import CoreLocation
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
-//    var locationManagerr = CLLocationManager()
-//    var geocoder = CLGeocoder()
-    /// на старте начинаем процесс по поиску геопозиции, тут же и дергаем координаты и город
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//
-//        locationManagerr.delegate = self
-//        locationManagerr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        /// запрашиваем геопозицию (при использовании)
-//        locationManagerr.requestWhenInUseAuthorization()
-        /// начинаем апдейтить геопозицию
-//        locationManagerr.startUpdatingLocation()
         
         return true
     }
@@ -42,29 +32,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
 
 }
-/// экстеншн для методов делегата, тут обрабатываем геопозицию или принтим в консоль эррор в обратном случае
-//extension AppDelegate {
-    /// здесь достаем наименование города
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let locationCity = locations.last {
-//            geocoder.reverseGeocodeLocation(locationCity) { (placemarks, error) in
-//                if let placemark = placemarks?.first {
-//                    if let city = placemark.locality {
-//                        print("City is \(city)")
-//                    }
-//                }
-//            }
-//        }
-        /// здесь достаем точные координаты (можем дергать не точные а приблизительные в методе locationManagerr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters - использовать другие параметры для оптимизации расхода батареи)
-//        if let location = locations.first {
-//            let latitude = location.coordinate.latitude
-//            let longitude = location.coordinate.longitude
-//            print(latitude)
-//            print(longitude)
-//        }
-//    }
-    /// просто принтим эррор пока на этапе дэва - можем модалку показывать или все что угодно
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        print("Error to request location")
-//    }
-

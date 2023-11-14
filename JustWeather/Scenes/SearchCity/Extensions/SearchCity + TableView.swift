@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+// MARK: - SetupTableView
 extension SearchCityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.response.count ?? 0
